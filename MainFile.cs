@@ -2,6 +2,7 @@ using BaseLib.Config;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace ShopTrader;
 
@@ -27,6 +28,22 @@ public partial class MainFile : Node
         Logger.Info("ShopTrader: Shop Trader mod initializing...");
 
         ModConfigRegistry.Register(ModId, new ShopTraderConfig());
+
+        ModHelper.AddModelToPool<ColorlessCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<ColorlessCardPool, SwapCards>();
+
+        // Make both cards eligible for end-of-combat card rewards in any character's run.
+        ModHelper.AddModelToPool<IroncladCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<IroncladCardPool, SwapCards>();
+        ModHelper.AddModelToPool<SilentCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<SilentCardPool, SwapCards>();
+        ModHelper.AddModelToPool<DefectCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<DefectCardPool, SwapCards>();
+        ModHelper.AddModelToPool<NecrobinderCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<NecrobinderCardPool, SwapCards>();
+        ModHelper.AddModelToPool<RegentCardPool, SwapEnergy>();
+        ModHelper.AddModelToPool<RegentCardPool, SwapCards>();
+        Logger.Info("ShopTrader: registered Swap Energy and Swap Cards in ColorlessCardPool and all character card pools.");
 
         Harmony harmony = new(ModId);
         harmony.PatchAll();

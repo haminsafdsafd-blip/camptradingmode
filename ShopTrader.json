@@ -1,0 +1,14 @@
+{
+  "id": "ShopTrader",
+  "name": "Shop Trader",
+  "author": "RazanKai",
+  "description": "Gift gold to teammates at merchant shops in multiplayer. A co-op Shop Trader mod.",
+  "version": "1.2.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    { "id": "BaseLib", "min_version": "v3.4.5" }
+  ],
+  "min_game_version": "v0.107.1",
+  "affects_gameplay": true
+}
